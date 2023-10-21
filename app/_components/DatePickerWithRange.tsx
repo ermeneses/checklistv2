@@ -13,23 +13,22 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-const getDateMinusSevenDays = () => {
-  const today = new Date();
-  const sevenDaysAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
-  return sevenDaysAgo;
-};
-
 export function DatePickerWithRange({
   className,
-}: React.HTMLAttributes<HTMLDivElement>) {
+  onChange,
+}: {
+  className?: string;
+  onChange: (newDate: DateRange | undefined) => void;
+}) {
   const [date, setDate] = useState<DateRange | undefined>({
-    from: getDateMinusSevenDays(),
-    to: new Date(),
+    from: undefined,
+    to: undefined,
   });
 
   const setDate2 = (newDate: DateRange | undefined) => {
     setDate(newDate);
-    console.log(newDate);
+    onChange(newDate);
+    // console.log(newDate);
   };
 
   return (
@@ -48,11 +47,11 @@ export function DatePickerWithRange({
             {date?.from ? (
               date.to ? (
                 <>
-                  {format(date.from, "LLL dd, y")} -{" "}
-                  {format(date.to, "LLL dd, y")}
+                  {format(date.from, "yyyy-MM-dd")} -{" "}
+                  {format(date.to, "yyyy-MM-dd")}
                 </>
               ) : (
-                format(date.from, "LLL dd, y")
+                format(date.from, "yyyy-MM-dd")
               )
             ) : (
               <span>Pick a date</span>
