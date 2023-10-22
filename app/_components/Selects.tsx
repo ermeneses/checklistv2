@@ -194,7 +194,7 @@ const Selects = () => {
   };
 
   return (
-    <div className="flex h-5 items-center space-x-4 text-sm w-full">
+    <div className="flex items-center justify-start text-sm w-full flex-wrap gap-2">
       <div>
         <Select onValueChange={updateDetinoActivateHoteres}>
           <SelectTrigger className="w-[185px]">

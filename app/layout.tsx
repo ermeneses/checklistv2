@@ -26,7 +26,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <NavMenu />
-          <main className="p-2 bg-background h-full">{children}</main>
+          <main className="p-2 h-auto">{children}</main>
         </ThemeProvider>
       </body>
     </html>
