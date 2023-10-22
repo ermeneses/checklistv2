@@ -117,6 +117,7 @@ const Selects = () => {
   const [destino, setDestino] = useState("");
   const [hotel, setHotel] = useState("");
   const [fechas, setFechas] = useState<DateRange | undefined>(undefined);
+  const [cargando, setCargando] = useState(false);
 
   const cambiarFechas = (nuevaFecha: DateRange | undefined) => {
     setFechas(nuevaFecha);
@@ -171,6 +172,7 @@ const Selects = () => {
     inicio: number,
     fin: number
   ) => {
+    setCargando(true);
     try {
       const res = await fetch("https://maphg.com/america/api_v3/", {
         method: "POST",
@@ -188,6 +190,7 @@ const Selects = () => {
       const data = await res.json();
       setChecklist(data.data);
       transformarArray(data.data.actividades);
+      setCargando(false);
     } catch (error) {
       console.log(error);
     }
@@ -260,6 +263,7 @@ const Selects = () => {
           <DatePickerWithRange onChange={cambiarFechas} />
           <Separator orientation="vertical" />
           <Button
+            disabled={cargando}
             onClick={() =>
               fetchChecklist(
                 destino,
@@ -271,7 +275,11 @@ const Selects = () => {
             className="flex gap-2"
             variant={"default"}
           >
-            <RefreshCw size={15} /> Update
+            <RefreshCw
+              size={cargando ? 20 : 15}
+              className={cargando ? "animate-spin" : ""}
+            />{" "}
+            {cargando ? "Espere..." : "Actualizar"}
           </Button>
         </>
       )}
