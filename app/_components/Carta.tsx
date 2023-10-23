@@ -30,14 +30,14 @@ interface Props {
   Icono?: string;
   titulo: string;
   subtitulo: string;
-  cantidad: string;
+  cantidad: number;
 }
 
 const Carta = ({
   Icono = "activity",
   titulo = "Titulo",
   subtitulo = "subtitulo",
-  cantidad = "cantidad",
+  cantidad = 0,
 }: Props) => {
   const IconoElegido = iconos[Icono] || null;
   return (

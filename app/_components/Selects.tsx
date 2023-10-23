@@ -15,75 +15,31 @@ import { Loader, RefreshCw } from "lucide-react";
 import { DatePickerWithRange } from "./DatePickerWithRange";
 import { DateRange } from "react-day-picker";
 import { format } from "date-fns";
+import type {
+  Destino,
+  Hotel,
+  Checklist,
+  Actividad,
+  Resumen1,
+} from "@/types/interfaces";
 
-interface Interfacedestino {
-  idDestino: number;
-  destino: string;
-  ubicacion: string;
-  status: string;
-  bandera: string;
-  division: number;
-  superficie: string;
-  habitaciones: number;
-}
-interface Interfacehotel {
-  idHotel: number;
-  idDestino: number;
-  hotel: string;
-  marca: string;
-}
+type SelectsProps = {
+  onData: (data: Resumen1) => void;
+};
 
-interface interfacechecklist {
-  idRegistro: string;
-  destino: string;
-  nombreDestino: string;
-  hotel: string;
-  sabana: string;
-  equipo: string;
-  creadoPor: string;
-  fechaCreado: string;
-  fechaFinalizado: string;
-  actividad: string;
-  idActividad: string;
-  valor: string;
-  comentario: string;
-  adjunto: string;
-  reportado: string;
-  mes: string;
-}
-
-interface Actividad {
-  idRegistro: string;
-  destino: string;
-  nombreDestino: string;
-  hotel: string;
-  sabana: string;
-  equipo: string;
-  creadoPor: string;
-  fechaCreado: string;
-  fechaFinalizado: string;
-  actividad: string;
-  idActividad: string;
-  valor: string;
-  comentario: string;
-  adjunto: string;
-  reportado: string;
-  mes: string;
-}
-
-const transformarArray = (array: Actividad[]) => {
+const transformarArray = (array: Actividad[]): Resumen1 => {
   if (!Array.isArray(array)) {
     throw new Error("Se esperaba un array");
   }
 
   let registros: { [id: string]: boolean } = {};
   let actividades: number = array.length;
-  let valor: { [key: string]: number } = {
+  let valor: { NO: number; SI: number; "N/A": number } = {
     NO: 0,
     SI: 0,
     "N/A": 0,
   };
-  let reportado: { [key: string]: number } = {
+  let reportado: { NO: number; SI: number } = {
     NO: 0,
     SI: 0,
   };
@@ -92,16 +48,27 @@ const transformarArray = (array: Actividad[]) => {
     if (!registros[actividad.idRegistro]) {
       registros[actividad.idRegistro] = true;
     }
-    valor[actividad.valor] = (valor[actividad.valor] || 0) + 1;
-    reportado[actividad.reportado] = (reportado[actividad.reportado] || 0) + 1;
+    if (
+      actividad.valor === "NO" ||
+      actividad.valor === "SI" ||
+      actividad.valor === "N/A"
+    ) {
+      valor[actividad.valor] = (valor[actividad.valor] || 0) + 1;
+    }
+    if (actividad.reportado === "NO" || actividad.reportado === "SI") {
+      reportado[actividad.reportado] =
+        (reportado[actividad.reportado] || 0) + 1;
+    }
   });
 
-  console.log({
+  const resumen: Resumen1 = {
     Registros: Object.keys(registros).length,
     Actividades: actividades,
     Valor: valor,
     Reportado: reportado,
-  });
+  };
+
+  return resumen;
 };
 
 const getDateMinusSevenDays = () => {
@@ -110,14 +77,15 @@ const getDateMinusSevenDays = () => {
   return sevenDaysAgo;
 };
 
-const Selects = () => {
-  const [destinos, setDestinos] = useState<Interfacedestino[]>([]);
-  const [hoteles, setHoteles] = useState<Interfacehotel[]>([]);
-  const [checklist, setChecklist] = useState<interfacechecklist[]>([]);
+const Selects: React.FC<SelectsProps> = (props) => {
+  const [destinos, setDestinos] = useState<Destino[]>([]);
+  const [hoteles, setHoteles] = useState<Hotel[]>([]);
+  const [checklist, setChecklist] = useState<Checklist[]>([]);
   const [destino, setDestino] = useState("");
   const [hotel, setHotel] = useState("");
   const [fechas, setFechas] = useState<DateRange | undefined>(undefined);
   const [cargando, setCargando] = useState(false);
+  const [data, setData] = useState<Resumen1 | null>(null);
 
   const cambiarFechas = (nuevaFecha: DateRange | undefined) => {
     setFechas(nuevaFecha);
@@ -135,9 +103,7 @@ const Selects = () => {
         }),
       });
       const data = await res.json();
-      setDestinos(
-        data.data.filter((obj: Interfacedestino) => obj.idDestino !== 10)
-      );
+      setDestinos(data.data.filter((obj: Destino) => obj.idDestino !== 10));
     };
 
     fetchDestinos();
@@ -189,8 +155,24 @@ const Selects = () => {
       });
       const data = await res.json();
       setChecklist(data.data);
-      transformarArray(data.data.actividades);
       setCargando(false);
+      if (!data.data.actividades || data.data.actividades.length === 0) {
+        props.onData({
+          Registros: 0,
+          Actividades: 0,
+          Valor: {
+            NO: 0,
+            SI: 0,
+            "N/A": 0,
+          },
+          Reportado: {
+            NO: 0,
+            SI: 0,
+          },
+        });
+      } else {
+        props.onData(transformarArray(data.data.actividades));
+      }
     } catch (error) {
       console.log(error);
     }

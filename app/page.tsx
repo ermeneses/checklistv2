@@ -1,11 +1,22 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Selects from "./_components/Selects";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CheckSquare } from "lucide-react";
 import Carta from "./_components/Carta";
+import type { Resumen1 } from "@/types/interfaces";
 
 export default function Home() {
+  // <recibirDataDelHijo>
+  const [dataFromChild, setDataFromChild] = useState<Resumen1 | null>(null);
+  const handleDataFromChild = (data: Resumen1) => {
+    setDataFromChild(data);
+    console.log(data);
+  };
+  // </recibirDataDelHijo>
+
   return (
     <div className=" container space-y-5">
       <div className="gap-0 py-2 flex flex-col items-start justify-center">
@@ -17,45 +28,49 @@ export default function Home() {
         </p>
       </div>
       <Separator />
-      <Selects />
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <Carta
-          titulo="Total de Checklist"
-          subtitulo="Registros totales"
-          cantidad="3"
-          Icono="checklist"
-        />
-        <Carta
-          titulo="Total de Actividades"
-          subtitulo="Puntos de revisión"
-          cantidad="3"
-          Icono="actividades"
-        />
-        <Carta
-          titulo="Marcadas como SÍ"
-          subtitulo="Encontradas como OK"
-          cantidad="3"
-          Icono="si"
-        />
-        <Carta
-          titulo="Marcadas como NO"
-          subtitulo="Potenciales averías"
-          cantidad="3"
-          Icono="no"
-        />
-        <Carta
-          titulo="Marcadas como N/A"
-          subtitulo="Actividades que no aplicaban"
-          cantidad="3"
-          Icono="na"
-        />
-        <Carta
-          titulo="Reportadas en GIFT"
-          subtitulo="Anticipación"
-          cantidad="3"
-          Icono="gift"
-        />
-      </div>
+      <Selects onData={handleDataFromChild} />
+      {dataFromChild !== null ? (
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-6">
+          <Carta
+            titulo="Total de Checklist"
+            subtitulo="Registros totales"
+            cantidad={dataFromChild.Registros}
+            Icono="checklist"
+          />
+          <Carta
+            titulo="Total de Actividades"
+            subtitulo="Puntos de revisión"
+            cantidad={dataFromChild.Actividades}
+            Icono="actividades"
+          />
+          <Carta
+            titulo="Marcadas como SÍ"
+            subtitulo="Encontradas como OK"
+            cantidad={dataFromChild.Valor.SI}
+            Icono="si"
+          />
+          <Carta
+            titulo="Marcadas como NO"
+            subtitulo="Potenciales averías"
+            cantidad={dataFromChild.Valor.NO}
+            Icono="no"
+          />
+          <Carta
+            titulo="Marcadas como N/A"
+            subtitulo="No aplican"
+            cantidad={dataFromChild.Valor["N/A"]}
+            Icono="na"
+          />
+          <Carta
+            titulo="Reportadas en GIFT"
+            subtitulo="Anticipación"
+            cantidad={dataFromChild.Reportado.SI}
+            Icono="gift"
+          />
+        </div>
+      ) : (
+        "Noup"
+      )}
     </div>
   );
 }
