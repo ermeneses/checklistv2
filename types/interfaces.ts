@@ -8,6 +8,7 @@ interface Destino {
   superficie: string;
   habitaciones: number;
 }
+
 interface Hotel {
   idHotel: number;
   idDestino: number;
@@ -53,6 +54,16 @@ interface Actividad {
   mes: string;
 }
 
+interface ActividadAgrupada {
+  idRegistro: string;
+  creadoPor: string;
+  tiempo: number;
+  creado: string;
+  finalizado: string;
+  hotel: string;
+  actividades: Actividad[];
+}
+
 interface Resumen1 {
   Registros: number;
   Actividades: number;
@@ -85,6 +96,8 @@ interface Summary {
     na: number;
     reportadasComoSi: number;
     reportadasComoNo: number;
+    totalChecklist: number;
+    idRegistros: Set<string>; // Agregado para realizar un seguimiento de los idRegistro únicos
   };
   hoteles: Array<{
     hotel: string;
@@ -95,6 +108,8 @@ interface Summary {
       na: number;
       reportadasComoSi: number;
       reportadasComoNo: number;
+      totalChecklist: number;
+      idRegistros: Set<string>; // Agregado para realizar un seguimiento de los idRegistro únicos
     };
   }>;
   tecnicos: Array<{
@@ -106,6 +121,8 @@ interface Summary {
       na: number;
       reportadasComoSi: number;
       reportadasComoNo: number;
+      totalChecklist: number;
+      idRegistros: Set<string>; // Agregado para realizar un seguimiento de los idRegistro únicos
     };
   }>;
 }
@@ -117,7 +134,15 @@ type HotelData = {
   marca: string;
 };
 
+type BodyChecklist = {
+  inicio: string;
+  fin: string;
+  destino: string;
+  hotel: string;
+};
+
 export type {
+  BodyChecklist,
   Destino,
   Hotel,
   Checklist,
@@ -126,4 +151,5 @@ export type {
   Activity,
   Summary,
   HotelData,
+  ActividadAgrupada,
 };
