@@ -1,7 +1,7 @@
 "use client";
 import { AUDITORIAS } from "@/utils/misConstantes";
-import Texto from "./dashboard/_components/Texto";
-import Auditorias from "./dashboard/_components/Auditorias";
+import Texto from "./_components/Texto";
+import Auditorias from "./_components/Auditorias";
 
 interface Destino {
   idDestino: number;
