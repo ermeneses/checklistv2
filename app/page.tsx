@@ -30,10 +30,10 @@ const Dashboard = () => {
           En proceso
         </div>
         <div className="text-xs rounded-full border border-red-500 bg-red-500/10 font-medium text-red-500 py-1 px-2">
-          Pte. de Proveedor
+          Pte. Proveedor
         </div>
         <div className="text-xs rounded-full border border-blue-500 bg-blue-500/10 font-medium text-blue-500 py-1 px-2">
-          Pte. de Aprobación
+          Pte. Aprobación
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-12 w-full p-6">
