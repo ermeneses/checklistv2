@@ -7,8 +7,8 @@ import {
   Hotel,
 } from "@/types/interfaces";
 
-import { format, formatDistanceToNow } from "date-fns";
-import { es } from "date-fns/locale";
+// import { format, formatDistanceToNow } from "date-fns";
+// import { es } from "date-fns/locale";
 
 // ************************************************************************************************
 export const getChecklist = async (
@@ -206,30 +206,80 @@ export const resumenActividades = (actividades: Actividad[]): any[] => {
 
 // *******************************************************
 
+// export const convertirFecha = (fechaString: string): string => {
+//   const fecha = new Date(fechaString);
+//   const fechaFormateada = format(fecha, "dd MMMM", { locale: es });
+//   const hoy = new Date();
+//   const milisegundosPorDia = 1000 * 60 * 60 * 24;
+//   const diferenciaMilisegundos = hoy.getTime() - fecha.getTime();
+//   const diferenciaDias = Math.floor(
+//     diferenciaMilisegundos / milisegundosPorDia
+//   );
+
+//   let texto = "";
+
+//   if (diferenciaDias < 30) {
+//     const textoDias = diferenciaDias === 1 ? "día" : "días";
+//     texto = `${fechaFormateada.toUpperCase()}, hace ${diferenciaDias} ${textoDias}`;
+//   } else {
+//     const diferenciaMeses = Math.floor(diferenciaDias / 30);
+//     const restoDias = diferenciaDias % 30;
+//     const textoMeses = diferenciaMeses === 1 ? "mes" : "meses";
+//     const textoDias = restoDias === 1 ? "día" : "días";
+//     if (restoDias > 0) {
+//       texto = `${fechaFormateada.toUpperCase()}, hace ${diferenciaMeses} ${textoMeses} y ${restoDias} ${textoDias}`;
+//     } else {
+//       texto = `${fechaFormateada.toUpperCase()}, hace ${diferenciaMeses} ${textoMeses}`;
+//     }
+//   }
+
+//   return texto;
+// };
+
+const meses: string[] = [
+  "enero",
+  "febrero",
+  "marzo",
+  "abril",
+  "mayo",
+  "junio",
+  "julio",
+  "agosto",
+  "septiembre",
+  "octubre",
+  "noviembre",
+  "diciembre",
+];
+
 export const convertirFecha = (fechaString: string): string => {
-  const fecha = new Date(fechaString);
-  const fechaFormateada = format(fecha, "dd MMMM", { locale: es });
-  const hoy = new Date();
-  const milisegundosPorDia = 1000 * 60 * 60 * 24;
-  const diferenciaMilisegundos = hoy.getTime() - fecha.getTime();
-  const diferenciaDias = Math.floor(
+  const fechaArray: string[] = fechaString.split("-");
+  const fecha: Date = new Date(
+    `${fechaArray[2]}-${fechaArray[0]}-${fechaArray[1]}T00:00:00`
+  );
+  const fechaFormateada: string = `${fecha.getDate()} ${
+    meses[fecha.getMonth()]
+  }`.toUpperCase();
+  const hoy: Date = new Date();
+  const milisegundosPorDia: number = 1000 * 60 * 60 * 24;
+  const diferenciaMilisegundos: number = hoy.getTime() - fecha.getTime();
+  const diferenciaDias: number = Math.floor(
     diferenciaMilisegundos / milisegundosPorDia
   );
 
-  let texto = "";
+  let texto: string = "";
 
   if (diferenciaDias < 30) {
-    const textoDias = diferenciaDias === 1 ? "día" : "días";
-    texto = `${fechaFormateada.toUpperCase()}, hace ${diferenciaDias} ${textoDias}`;
+    const textoDias: string = diferenciaDias === 1 ? "día" : "días";
+    texto = `${fechaFormateada}, hace ${diferenciaDias} ${textoDias}`;
   } else {
-    const diferenciaMeses = Math.floor(diferenciaDias / 30);
-    const restoDias = diferenciaDias % 30;
-    const textoMeses = diferenciaMeses === 1 ? "mes" : "meses";
-    const textoDias = restoDias === 1 ? "día" : "días";
+    const diferenciaMeses: number = Math.floor(diferenciaDias / 30);
+    const restoDias: number = diferenciaDias % 30;
+    const textoMeses: string = diferenciaMeses === 1 ? "mes" : "meses";
+    const textoDias: string = restoDias === 1 ? "día" : "días";
     if (restoDias > 0) {
-      texto = `${fechaFormateada.toUpperCase()}, hace ${diferenciaMeses} ${textoMeses} y ${restoDias} ${textoDias}`;
+      texto = `${fechaFormateada}, hace ${diferenciaMeses} ${textoMeses} y ${restoDias} ${textoDias}`;
     } else {
-      texto = `${fechaFormateada.toUpperCase()}, hace ${diferenciaMeses} ${textoMeses}`;
+      texto = `${fechaFormateada}, hace ${diferenciaMeses} ${textoMeses}`;
     }
   }
 
