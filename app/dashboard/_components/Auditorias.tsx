@@ -18,15 +18,17 @@ const Auditorias = ({
   ubicacion,
 }: Props) => {
   return (
-    <div className="flex items-center gap-3 w-full">
+    <div className="flex flex-col md:flex-row items-center gap-3 w-full">
       <div
         className={
           ubicacion
-            ? "w-44 text-left text-lg font-bold"
-            : "w-28 text-center font-bold text-xl"
+            ? "w-full md:w-56 text-left text-lg font-bold"
+            : "w-full md:w-28 text-center font-bold text-xl"
         }
       >
-        <Texto>{ubicacion ? ubicacion : codDestino}</Texto>
+        <Texto className="text-xl md:text-lg">
+          {ubicacion ? ubicacion : codDestino}
+        </Texto>
       </div>
       <div className="grid grid-cols-1 grid-flow-row w-full gap-3">
         <Auditoria2022 destino={codDestino} fecha={fecha2022} />
