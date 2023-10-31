@@ -20,7 +20,7 @@ interface Destino {
 const Dashboard = () => {
   return (
     <div className="flex flex-col items-center gap-6 w-full">
-      <div className="flex flex-col items-center justify-center w-full py-9">
+      <div className="flex flex-col items-center justify-center w-full pb-9 pt-6">
         <Texto as="h2" className="font-[500] text-accent-foreground">
           Auditorías <span className="font-[700]">PROPCO</span>
         </Texto>
@@ -40,7 +40,7 @@ const Dashboard = () => {
         </div>
       </div>
       <Separator />
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-12 w-full px-6 pb-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-12 w-full px-6 pb-4">
         {AUDITORIAS.map((destino: Destino) => (
           <Auditorias
             key={destino.idDestino}
