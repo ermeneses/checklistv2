@@ -1,7 +1,7 @@
 "use client";
-import { AUDITORIAS } from "@/utils/misConstantes";
-import Texto from "./_components/Texto";
-import Auditorias from "./_components/Auditorias";
+// import { AUDITORIAS } from "@/utils/misConstantes";
+// import Texto from "./_components/Texto";
+// import Auditorias from "./_components/Auditorias";
 
 interface Destino {
   idDestino: number;
@@ -19,9 +19,9 @@ interface Destino {
 const Dashboard = () => {
   return (
     <div className="flex flex-col items-center gap-6 w-full">
-      <Texto as="h2" className="self-start">
+      {/* <Texto as="h2" className="self-start">
         Auditorías PROPCO
-      </Texto>
+      </Texto> */}
       <div className="flex items-center justify-start flex-wrap gap-2 w-full">
         <div className="text-xs rounded-full border border-green-500 bg-green-500/10 font-medium text-green-500 py-1 px-2">
           Finalizado
@@ -37,7 +37,7 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-12 w-full p-6">
-        {AUDITORIAS.map((destino: Destino) => (
+        {/* {AUDITORIAS.map((destino: Destino) => (
           <Auditorias
             key={destino.idDestino}
             idDestino={destino.idDestino}
@@ -46,7 +46,7 @@ const Dashboard = () => {
             fecha2023={destino.auditoria23}
             ubicacion={destino.ubicacion}
           />
-        ))}
+        ))} */}
       </div>
     </div>
   );
