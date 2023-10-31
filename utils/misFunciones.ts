@@ -258,7 +258,7 @@ export const convertirFecha = (fechaString: string): string => {
   );
   const fechaFormateada: string = `${fecha.getDate()} ${
     meses[fecha.getMonth()]
-  }`.toUpperCase();
+  }`;
   const hoy: Date = new Date();
   const milisegundosPorDia: number = 1000 * 60 * 60 * 24;
   const diferenciaMilisegundos: number = hoy.getTime() - fecha.getTime();

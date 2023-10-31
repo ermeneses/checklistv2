@@ -32,25 +32,25 @@ const Barra = ({
       {finalizado > 0 ? (
         <div
           style={{ width: `${porcentajes.finalizado}%` }}
-          className="bg-green-500 p-1.5 rounded-full"
+          className="bg-green-500 dark:bg-opacity-80 p-1.5 rounded-full"
         ></div>
       ) : null}
       {proceso > 0 ? (
         <div
           style={{ width: `${porcentajes.proceso}%` }}
-          className="bg-yellow-500 p-1.5 rounded-full"
+          className="bg-yellow-500 dark:bg-opacity-80 p-1.5 rounded-full"
         ></div>
       ) : null}
       {aprobacion > 0 ? (
         <div
           style={{ width: `${porcentajes.aprobacion}%` }}
-          className="bg-blue-500 p-1.5 rounded-full"
+          className="bg-blue-500 dark:bg-opacity-80 p-1.5 rounded-full"
         ></div>
       ) : null}
       {proveedor > 0 ? (
         <div
           style={{ width: `${porcentajes.proveedor}%` }}
-          className="bg-red-500 p-1.5 rounded-full"
+          className="bg-red-500 dark:bg-opacity-80 p-1.5 rounded-full"
         ></div>
       ) : null}
     </div>
