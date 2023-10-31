@@ -2,6 +2,7 @@
 import { AUDITORIAS } from "@/utils/misConstantes";
 import Texto from "./dashboard/_components/Texto";
 import Auditorias from "./dashboard/_components/Auditorias";
+import { Separator } from "@/components/ui/separator";
 
 interface Destino {
   idDestino: number;
@@ -19,24 +20,27 @@ interface Destino {
 const Dashboard = () => {
   return (
     <div className="flex flex-col items-center gap-6 w-full">
-      <Texto as="h2" className="self-start">
-        Auditorías PROPCO
-      </Texto>
-      <div className="flex items-center justify-start flex-wrap gap-2 w-full">
-        <div className="text-xs rounded-full border border-green-500 bg-green-500/10 font-medium text-green-500 py-1 px-2">
-          Finalizado
-        </div>
-        <div className="text-xs rounded-full border border-yellow-500 bg-yellow-500/10 font-medium text-yellow-500 py-1 px-2">
-          En proceso
-        </div>
-        <div className="text-xs rounded-full border border-red-500 bg-red-500/10 font-medium text-red-500 py-1 px-2">
-          Pte. Proveedor
-        </div>
-        <div className="text-xs rounded-full border border-blue-500 bg-blue-500/10 font-medium text-blue-500 py-1 px-2">
-          Pte. Aprobación
+      <div className="flex flex-col items-center justify-center w-full py-9">
+        <Texto as="h2" className="font-[500] text-accent-foreground">
+          Auditorías <span className="font-[700]">PROPCO</span>
+        </Texto>
+        <Texto className="text-muted-foreground leading-7">
+          Resumen de avances auditorias PROPCO 2022 - 2023, mantenimiento
+          América.
+        </Texto>
+        <div className="flex items-center flex-wrap gap-2 py-1 ">
+          <div className="rounded-full bg-green-500 w-2 h-2 flex-none"></div>
+          <Texto className="text-muted-foreground">Finalizado</Texto>
+          <div className="rounded-full bg-yellow-500 w-2 h-2 flex-none"></div>
+          <Texto className="text-muted-foreground">En proceso</Texto>
+          <div className="rounded-full bg-red-500 w-2 h-2 flex-none"></div>
+          <Texto className="text-muted-foreground">Pte. Proveedor</Texto>
+          <div className="rounded-full bg-blue-500 w-2 h-2 flex-none"></div>
+          <Texto className="text-muted-foreground">Pte. Aprobación</Texto>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-12 w-full p-6">
+      <Separator />
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-12 w-full px-6 pb-4">
         {AUDITORIAS.map((destino: Destino) => (
           <Auditorias
             key={destino.idDestino}

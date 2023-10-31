@@ -26,9 +26,9 @@ const Auditorias = ({
             : "w-28 text-center font-bold text-xl"
         }
       >
-        <h1>{ubicacion ? ubicacion : codDestino}</h1>
+        <Texto>{ubicacion ? ubicacion : codDestino}</Texto>
       </div>
-      <div className="grid grid-cols-1 grid-flow-row w-full gap-1">
+      <div className="grid grid-cols-1 grid-flow-row w-full gap-3">
         <Auditoria2022 destino={codDestino} fecha={fecha2022} />
         <Auditoria2023 destino={idDestino} fecha={fecha2023} />
       </div>

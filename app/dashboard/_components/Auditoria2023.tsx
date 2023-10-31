@@ -118,13 +118,11 @@ const Auditoria2022 = ({
   }
 
   return (
-    <div>
+    <div className="flex flex-col gap-1">
       <div className="flex items-center justify-between gap-2 flex-wrap">
         <div className="flex items-center flex-wrap gap-2">
-          <Texto as="h5" className="font-[800]">
-            2023
-          </Texto>
-          <Texto className="text-xs">{totalT} Tareas</Texto>
+          <Texto className="font-[800] text-xl text-foreground/80">2023</Texto>
+          <Texto className="text-sm font-[600]">{totalT} Tareas</Texto>
         </div>
         <div className="flex items-center gap-2 flex-wrap text-xs">
           {finalizadoT > 0 && (
@@ -161,8 +159,8 @@ const Auditoria2022 = ({
         aprobacion={aprobacionT}
         isLoading={isLoading}
       />
-      <Texto className="text-xs">
-        <strong>Recepción</strong>: {convertirFecha(fecha)}
+      <Texto className="text-sm font-[600]">
+        Recepción: {convertirFecha(fecha)}
       </Texto>
     </div>
   );

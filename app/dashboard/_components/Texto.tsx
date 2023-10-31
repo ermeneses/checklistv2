@@ -1,8 +1,14 @@
 import { ReactNode } from "react";
-import { Poppins } from "next/font/google";
+import { Poppins, Montserrat } from "next/font/google";
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
+});
+
+const montserrat = Montserrat({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  style: ["italic", "normal"],
 });
 
 type Props = {
@@ -35,7 +41,7 @@ const Texto = ({
   return (
     <Component
       {...props}
-      className={`${estiloSeleccionado} ${poppins.className} ${className}`}
+      className={`${estiloSeleccionado} ${montserrat.className} ${className}`}
     >
       {children}
     </Component>
