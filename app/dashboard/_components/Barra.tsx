@@ -25,7 +25,7 @@ const Barra = ({
     <div
       className={
         isLoading
-          ? " bg-foreground/50 animate-pulse rounded-full flex items-center p-0.5"
+          ? " bg-slate-300 animate-pulse rounded-full flex items-center p-2"
           : " bg-foreground/5 rounded-full flex items-center p-0.5"
       }
     >

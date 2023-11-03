@@ -125,36 +125,46 @@ const Auditoria2022 = ({
   return (
     <div className="flex flex-col gap-1">
       <div className="flex items-center justify-between gap-2 flex-wrap">
-        <div className="flex items-center flex-wrap gap-2">
-          <Texto className="font-[800] text-xl text-foreground/80">2022</Texto>
-          <Texto className="text-sm font-[600]">{totalT} Tareas</Texto>
-        </div>
-        <div className="flex items-center gap-2 flex-wrap text-xs">
-          {finalizadoT > 0 && (
-            <div className="flex items-center gap-1">
-              <div className="flex-none w-2 h-2 rounded-full bg-green-500"></div>
-              <h1>{((100 / totalT) * finalizadoT).toFixed(0)}% </h1>
-            </div>
-          )}
-          {procesoT > 0 && (
-            <div className="flex items-center gap-1">
-              <div className="flex-none w-2 h-2 rounded-full bg-yellow-500"></div>
-              <h1>{((100 / totalT) * procesoT).toFixed(0)}%</h1>
-            </div>
-          )}
-          {aprobacionT > 0 && (
-            <div className="flex items-center gap-1">
-              <div className="flex-none w-2 h-2 rounded-full bg-blue-500"></div>
-              <h1>{((100 / totalT) * aprobacionT).toFixed(0)}%</h1>
-            </div>
-          )}
-          {proveedorT > 0 && (
-            <div className="flex items-center gap-1">
-              <div className="flex-none w-2 h-2 rounded-full bg-red-500"></div>
-              <h1>{((100 / totalT) * proveedorT).toFixed(0)}%</h1>
-            </div>
-          )}
-        </div>
+        {isLoading ? (
+          <div className="w-36 bg-slate-300 animate-pulse p-2 rounded-full"></div>
+        ) : (
+          <div className="flex items-center flex-wrap gap-2">
+            <Texto className="font-[800] text-xl text-foreground/80">
+              2022
+            </Texto>
+            <Texto className="text-sm font-[600]">{totalT} Tareas</Texto>
+          </div>
+        )}
+        {isLoading ? (
+          <div className="w-36 bg-slate-300 animate-pulse p-2 rounded-full"></div>
+        ) : (
+          <div className="flex items-center gap-2 flex-wrap text-xs">
+            {finalizadoT > 0 && (
+              <div className="flex items-center gap-1">
+                <div className="flex-none w-2 h-2 rounded-full bg-green-500"></div>
+                <h1>{((100 / totalT) * finalizadoT).toFixed(0)}% </h1>
+              </div>
+            )}
+            {procesoT > 0 && (
+              <div className="flex items-center gap-1">
+                <div className="flex-none w-2 h-2 rounded-full bg-yellow-500"></div>
+                <h1>{((100 / totalT) * procesoT).toFixed(0)}%</h1>
+              </div>
+            )}
+            {aprobacionT > 0 && (
+              <div className="flex items-center gap-1">
+                <div className="flex-none w-2 h-2 rounded-full bg-blue-500"></div>
+                <h1>{((100 / totalT) * aprobacionT).toFixed(0)}%</h1>
+              </div>
+            )}
+            {proveedorT > 0 && (
+              <div className="flex items-center gap-1">
+                <div className="flex-none w-2 h-2 rounded-full bg-red-500"></div>
+                <h1>{((100 / totalT) * proveedorT).toFixed(0)}%</h1>
+              </div>
+            )}
+          </div>
+        )}
       </div>
       <Barra
         total={totalT}
@@ -164,9 +174,13 @@ const Auditoria2022 = ({
         aprobacion={aprobacionT}
         isLoading={isLoading}
       />
-      <Texto className="text-sm font-[600]">
-        Recepción: {convertirFecha(fecha)}
-      </Texto>
+      {isLoading ? (
+        <div className="w-36 bg-slate-300 animate-pulse p-2 rounded-full"></div>
+      ) : (
+        <Texto className="text-sm font-[600]">
+          Recepción: {convertirFecha(fecha)}
+        </Texto>
+      )}
     </div>
   );
 };
