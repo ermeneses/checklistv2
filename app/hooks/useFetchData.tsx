@@ -27,6 +27,7 @@ const useFetchData = (url: string, body: any): FetchDataProps => {
         if (isMounted) {
           setData(jsonData.data);
           setIsLoading(false);
+          // console.log(jsonData.data);
         }
       } catch (error) {
         if (isMounted) {
