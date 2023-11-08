@@ -66,12 +66,12 @@ const Mp = ({
   );
 
   return (
-    <div className="flex flex-col md:flex-row md:items-center justify-start gap-2">
+    <div className="flex flex-col md:flex-row md:items-center justify-start gap-6 md:gap-2">
       <div className="flex md:flex-col gap-2">
         {isLoading ? (
           <div className="w-36 p-2 rounded-full bg-slate-300 animate-pulse"></div>
         ) : (
-          <Texto className="w-full md:w-40 text-xl md:text-lg font-bold">
+          <Texto className="w-full md:w-72 text-xl md:text-3xl font-bold">
             {nombreDestino}
           </Texto>
         )}
@@ -83,13 +83,70 @@ const Mp = ({
         )}
       </div>
       {isLoading ? (
-        <div className="flex items-center justify-start gap-2">
-          <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
-          <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
-          <div className="w-36 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-3 md:gap-y-1">
+          <div className="flex items-center justify-start gap-2">
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-36 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+          </div>
+          <div className="flex items-center justify-start gap-2">
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-36 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+          </div>
+          <div className="flex items-center justify-start gap-2">
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-36 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+          </div>
+          <div className="flex items-center justify-start gap-2">
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-36 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+          </div>
+          <div className="flex items-center justify-start gap-2">
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-36 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+          </div>
+          <div className="flex items-center justify-start gap-2">
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-36 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+          </div>
+          <div className="flex items-center justify-start gap-2">
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-36 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+          </div>
+          <div className="flex items-center justify-start gap-2">
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-36 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+          </div>
+          <div className="flex items-center justify-start gap-2">
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-36 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+          </div>
+          <div className="flex items-center justify-start gap-2">
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-36 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+          </div>
+          <div className="flex items-center justify-start gap-2">
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-36 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+          </div>
+          <div className="flex items-center justify-start gap-2">
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+            <div className="w-36 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+          </div>
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-3 md:gap-y-1">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-3 gap-y-3 md:gap-y-1">
           {data?.secciones.map((seccion) => (
             <Barra
               seccion={seccion.seccion}
