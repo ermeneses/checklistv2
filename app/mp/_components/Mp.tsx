@@ -82,16 +82,24 @@ const Mp = ({
           />
         )}
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-3 md:gap-y-1">
-        {data?.secciones.map((seccion) => (
-          <Barra
-            seccion={seccion.seccion}
-            key={seccion.idSeccion}
-            planificado={seccion.planificado}
-            finalizado={seccion.solucionados}
-          />
-        ))}
-      </div>
+      {isLoading ? (
+        <div className="flex items-center justify-start gap-2">
+          <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+          <div className="w-6 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+          <div className="w-36 bg-slate-300 animate-pulse p-1 rounded-full"></div>
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-3 md:gap-y-1">
+          {data?.secciones.map((seccion) => (
+            <Barra
+              seccion={seccion.seccion}
+              key={seccion.idSeccion}
+              planificado={seccion.planificado}
+              finalizado={seccion.solucionados}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
