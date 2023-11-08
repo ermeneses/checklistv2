@@ -29,7 +29,7 @@ export default function NavMenu() {
             <SheetClose asChild>
               <Link
                 href={"/"}
-                className="text-left w-full p-2 rounded-lg px-4 hover:font-medium hover:bg-slate-100"
+                className="text-left w-full p-2 rounded-lg px-4 hover:font-medium hover:bg-slate-100 dark:hover:bg-slate-900/60"
               >
                 Auditorías PROPCO
               </Link>
@@ -37,7 +37,7 @@ export default function NavMenu() {
             <SheetClose asChild>
               <Link
                 href={"/mc"}
-                className="text-left w-full p-2 rounded-lg px-4 hover:font-medium hover:bg-slate-100"
+                className="text-left w-full p-2 rounded-lg px-4 hover:font-medium hover:bg-slate-100 dark:hover:bg-slate-900/60"
               >
                 Mantenimiento Correctivo
               </Link>
@@ -45,7 +45,7 @@ export default function NavMenu() {
             <SheetClose asChild>
               <Link
                 href={"/mp"}
-                className="text-left w-full p-2 rounded-lg px-4 hover:font-medium hover:bg-slate-100"
+                className="text-left w-full p-2 rounded-lg px-4 hover:font-medium hover:bg-slate-100 dark:hover:bg-slate-900/60"
               >
                 Mantenimiento Preventivo
               </Link>
