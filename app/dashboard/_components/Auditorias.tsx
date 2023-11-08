@@ -22,11 +22,11 @@ const Auditorias = ({
       <div
         className={
           ubicacion
-            ? "w-full md:w-56 text-left text-lg font-bold"
+            ? "w-full md:w-96 text-left text-lg font-bold"
             : "w-full md:w-28 text-center font-bold text-xl"
         }
       >
-        <Texto className="text-xl md:text-lg">
+        <Texto className="text-xl md:text-3xl">
           {ubicacion ? ubicacion : codDestino}
         </Texto>
       </div>

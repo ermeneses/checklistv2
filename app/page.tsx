@@ -20,7 +20,7 @@ interface Destino {
 const Dashboard = () => {
   return (
     <div className="flex flex-col items-center gap-6 w-full">
-      <div className="flex flex-col items-center justify-center w-full pb-4 pt-4 md:pb-9 md:pt-6 text-center">
+      <div className="flex flex-col items-center justify-center w-full h-44 text-center">
         <Texto as="h2" className="font-[500] text-accent-foreground">
           Auditorías <span className="font-[700]">PROPCO</span>
         </Texto>

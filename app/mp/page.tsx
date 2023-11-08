@@ -36,7 +36,7 @@ const Mp = () => {
 
   return (
     <div className="flex flex-col items-center gap-6 w-full">
-      <div className="flex flex-col items-center justify-center w-full gap-2 pt-4 md:pt-6 text-center">
+      <div className="flex flex-col items-center justify-center w-full gap-2 h-44  text-center">
         <Texto as="h2" className="font-[500] text-accent-foreground">
           Mantenimiento <span className="font-[700]">PREVENTIVO</span>
         </Texto>
