@@ -76,10 +76,18 @@ const Mp = ({
           </Texto>
         )}
         {data?.global && (
-          <Barra
-            planificado={data.global.planificadoGlobal}
-            finalizado={data.global.solucionadosGlobal}
-          />
+          <div className="flex gap-2 w-full">
+            <Barra
+              planificado={data.global.planificadoGlobal}
+              finalizado={data.global.solucionadosGlobal}
+            />
+            <div>
+              <h1 className="text-xs">
+                {data.global.solucionadosGlobal} de{" "}
+                {data.global.planificadoGlobal}
+              </h1>
+            </div>
+          </div>
         )}
       </div>
       {isLoading ? (
