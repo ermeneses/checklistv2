@@ -50,6 +50,14 @@ export default function NavMenu() {
                 Mantenimiento Preventivo
               </Link>
             </SheetClose>
+            <SheetClose asChild>
+              <Link
+                href={"/checklist"}
+                className="text-left w-full p-2 rounded-lg px-4 hover:font-medium hover:bg-slate-100 dark:hover:bg-slate-900/60"
+              >
+                Checklist Habitaciones
+              </Link>
+            </SheetClose>
           </div>
         </SheetContent>
       </Sheet>

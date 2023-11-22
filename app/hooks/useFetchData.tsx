@@ -16,6 +16,7 @@ const useFetchData = (url: string, body: any): FetchDataProps => {
 
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const response = await fetch(url, {
           method: "POST",
           body: JSON.stringify(body),
