@@ -24,8 +24,8 @@ interface Destino {
 }
 
 const Mp = () => {
-  const [fechaInicial, setFechaInicial] = useState<Date>(new Date(2023, 9, 1));
-  const [fechaFinal, setFechaFinal] = useState<Date>(new Date(2023, 9, 31));
+  const [fechaInicial, setFechaInicial] = useState<Date>(new Date(2023, 10, 1));
+  const [fechaFinal, setFechaFinal] = useState<Date>(new Date(2023, 10, 30));
 
   const cFechaInicial = (fecha: Date) => {
     setFechaInicial(fecha);

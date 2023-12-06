@@ -291,5 +291,6 @@ export const convertirFechaMp = (fechaString: Date): string => {
   const year = fecha.getFullYear();
   const month = ("0" + (fecha.getMonth() + 1)).slice(-2);
   const day = ("0" + fecha.getDate()).slice(-2);
+  console.log(`${year}-${month}-${day}`);
   return `${year}-${month}-${day}`;
 };

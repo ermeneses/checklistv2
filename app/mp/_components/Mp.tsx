@@ -39,8 +39,8 @@ type Data = {
 };
 
 const Mp = ({
-  fechaI = new Date(2023, 9, 1),
-  fechaF = new Date(2023, 9, 31),
+  fechaI = new Date(2023, 10, 1),
+  fechaF = new Date(2023, 10, 30),
   idDestino,
   nombreDestino,
 }: Props) => {
