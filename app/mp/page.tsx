@@ -43,6 +43,8 @@ const Mp = () => {
         <Texto className="text-muted-foreground leading-7">
           Porcentaje de cumplimiento de la planificación de MP
         </Texto>
+        <Texto as="h4">Enero 2024</Texto>
+
         {/* <div className="flex items-center gap-3 px-3 pt-7">
           <DatePicker onFechaChange={cFechaInicial} label="Fecha Inicial" />
           <DatePicker onFechaChange={cFechaFinal} label="Fecha Final" />
