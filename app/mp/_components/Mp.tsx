@@ -83,8 +83,7 @@ const Mp = ({
             />
             <div>
               <h1 className="text-xs">
-                {data.global.solucionadosGlobal} de{" "}
-                {data.global.planificadoGlobal}
+                {data.global.solucionadosGlobal} de {data.global.creadasGlobal}
               </h1>
             </div>
           </div>
