@@ -78,7 +78,7 @@ const Mp = ({
         {data?.global && (
           <div className="flex gap-2 w-full">
             <Barra
-              planificado={data.global.planificadoGlobal}
+              planificado={data.global.creadasGlobal}
               finalizado={data.global.solucionadosGlobal}
             />
             <div>
