@@ -24,7 +24,7 @@ export function DatePicker({ onFechaChange, label }: Props) {
     const newText = event;
     setDate(newText);
     onFechaChange(newText);
-    console.log(date);
+    // console.log(date);
   };
   return (
     <Popover>

@@ -60,6 +60,8 @@ const Mp = ({
     body
   );
 
+  data && console.log(data)
+
   return (
     <div className="flex flex-col md:flex-row md:items-center justify-start gap-6 md:gap-2">
       <div className="flex md:flex-col gap-2">
