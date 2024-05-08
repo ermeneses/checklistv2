@@ -35,7 +35,12 @@ export default function NavMenu() {
             </SheetClose>
             <SheetClose asChild>
               <Link href={"/ff&e2024"} className="text-left w-full p-2 rounded-lg px-4 hover:font-medium hover:bg-slate-100 dark:hover:bg-slate-900/60">
-                FF&E2024
+                FF&E2024 MANTENIMIENTO
+              </Link>
+            </SheetClose>
+            <SheetClose asChild>
+              <Link href={"/ff&e2024gen"} className="text-left w-full p-2 rounded-lg px-4 hover:font-medium hover:bg-slate-100 dark:hover:bg-slate-900/60">
+                FF&E2024 GENERAL
               </Link>
             </SheetClose>
             {/* <SheetClose asChild>
