@@ -11,9 +11,9 @@ interface Props {
 }
 const Barra = (props: Props) => {
   return (
-    <div className="w-full flex flex-col items-start justify-start gap-2">
-      <div className="w-full md:w-3/5 xl:w-3/5 lg:w-3/5 flex flex-row items-center justify-between flex-wrap gap-2 self-center">
-        <div className="flex w-full sm:w-auto md:w-auto flex-col items-start justify-center flex-none">
+    <div className="w-full flex flex-col items-start justify-start gap-2 ">
+      <div className="w-full md:w-3/5 xl:w-3/5 lg:w-3/5 flex flex-row items-center justify-between flex-wrap gap-2 self-center ">
+        <div className="flex w-full sm:w-auto md:w-auto flex-col items-start justify-center flex-none ">
           <h1 className="leading-none font-bold uppercase">{props.destino}</h1>
           <h4 className="leading-none font-light">FF&amp;E 2023</h4>
         </div>

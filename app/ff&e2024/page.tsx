@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Task, TaskGroup } from "./interefaces";
-import Barra from "./components/barra";
+import Barra from "../ff&e2024gen/components/barra";
 type EstadoAvances = {
   Cotización: number;
   Finalizado: number;
