@@ -24,8 +24,8 @@ interface Destino {
 }
 
 const Mp = () => {
-  const [fechaInicial, setFechaInicial] = useState<Date>(new Date(2024, 5, 1));
-  const [fechaFinal, setFechaFinal] = useState<Date>(new Date(2024, 5, 30));
+  const [fechaInicial, setFechaInicial] = useState<Date>(new Date(2024, 6, 1));
+  const [fechaFinal, setFechaFinal] = useState<Date>(new Date(2024, 6, 31));
 
   const cFechaInicial = (fecha: Date) => {
     setFechaInicial(fecha);
@@ -41,7 +41,7 @@ const Mp = () => {
           Mantenimiento <span className="font-[700]">PREVENTIVO</span>
         </Texto>
         <Texto className="text-muted-foreground leading-7">Porcentaje de cumplimiento de la planificación de MP</Texto>
-        <Texto as="h4">JUNIO 2024</Texto>
+        <Texto as="h4">JULIO 2024</Texto>
 
         {/* <div className="flex items-center gap-3 px-3 pt-7">
           <DatePicker onFechaChange={cFechaInicial} label="Fecha Inicial" />
