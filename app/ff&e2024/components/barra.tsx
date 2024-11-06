@@ -46,7 +46,7 @@ const Barra = (props: Props) => {
           </div>
           <div className="flex items-center justify-start gap-1">
             <div className="w-2 h-2 rounded-sm bg-yellow-400"></div>
-            <h4 className="leading-none font-light">{props.aprobacion}- Aprovación</h4>
+            <h4 className="leading-none font-light">{props.aprobacion}- Aprobación</h4>
           </div>
           <div className="flex items-center justify-start gap-1">
             <div className="w-2 h-2 rounded-sm bg-blue-400"></div>
