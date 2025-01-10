@@ -43,6 +43,16 @@ export default function NavMenu() {
                 FF&E2024 GENERAL
               </Link>
             </SheetClose>
+            <SheetClose asChild>
+              <Link href={"/anualMP"} className="text-left w-full p-2 rounded-lg px-4 hover:font-medium hover:bg-slate-100 dark:hover:bg-slate-900/60">
+                ANUAL MP
+              </Link>
+            </SheetClose>
+            <SheetClose asChild>
+              <Link href={"/anualMC"} className="text-left w-full p-2 rounded-lg px-4 hover:font-medium hover:bg-slate-100 dark:hover:bg-slate-900/60">
+                ANUAL MC
+              </Link>
+            </SheetClose>
             {/* <SheetClose asChild>
               <Link
                 href={"/checklist"}
