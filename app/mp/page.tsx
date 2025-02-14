@@ -1,31 +1,15 @@
 "use client";
 import Texto from "../dashboard/_components/Texto";
-import Auditorias from "../dashboard/_components/Auditorias";
 import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
-import { DatePicker } from "./_components/DatePicker";
-import MP from "./_components/Mp";
-import { FormLabel } from "@/components/ui/form";
-import { MPMC } from "@/utils/misConstantes";
-import { Button } from "@/components/ui/button";
-import { useRef } from "react";
 
-interface Destino {
-  idDestino: number;
-  destino: string;
-  ubicacion: string;
-  status: string;
-  bandera: string;
-  division: number;
-  superficie: string;
-  habitaciones: number;
-  auditoria22: string;
-  auditoria23: string;
-}
+import MP from "./_components/Mp";
+
+import { MPMC } from "@/utils/misConstantes";
 
 const Mp = () => {
-  const [fechaInicial, setFechaInicial] = useState<Date>(new Date(2024, 11, 1));
-  const [fechaFinal, setFechaFinal] = useState<Date>(new Date(2024, 11, 31));
+  const [fechaInicial, setFechaInicial] = useState<Date>(new Date(2025, 0, 1));
+  const [fechaFinal, setFechaFinal] = useState<Date>(new Date(2024, 0, 31));
 
   const cFechaInicial = (fecha: Date) => {
     setFechaInicial(fecha);
@@ -41,12 +25,7 @@ const Mp = () => {
           Mantenimiento <span className="font-[700]">PREVENTIVO</span>
         </Texto>
         <Texto className="text-muted-foreground leading-7">Porcentaje de cumplimiento de la planificación de MP</Texto>
-        <Texto as="h4">DICIEMBRE 2024</Texto>
-
-        {/* <div className="flex items-center gap-3 px-3 pt-7">
-          <DatePicker onFechaChange={cFechaInicial} label="Fecha Inicial" />
-          <DatePicker onFechaChange={cFechaFinal} label="Fecha Final" />
-        </div> */}
+        <Texto as="h4">ENERO 2025</Texto>
       </div>
       <Separator />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-12 w-full p-1 md:px-6 pb-4">

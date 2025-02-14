@@ -1,15 +1,9 @@
 "use client";
 import Texto from "../dashboard/_components/Texto";
-import Auditorias from "../dashboard/_components/Auditorias";
 import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
-import { DatePicker } from "./_components/DatePicker";
 import MC from "./_components/Mc";
-import { FormLabel } from "@/components/ui/form";
 import { MPMC } from "@/utils/misConstantes";
-import { Button } from "@/components/ui/button";
-import { useRef } from "react";
-import { Calendar } from "@/components/ui/calendar";
 
 interface Destino {
   idDestino: number;
@@ -25,8 +19,8 @@ interface Destino {
 }
 
 const Mp = () => {
-  const [fechaInicial, setFechaInicial] = useState<Date>(new Date(2024, 11, 1));
-  const [fechaFinal, setFechaFinal] = useState<Date>(new Date(2024, 11, 31));
+  const [fechaInicial, setFechaInicial] = useState<Date>(new Date(2025, 0, 1));
+  const [fechaFinal, setFechaFinal] = useState<Date>(new Date(2024, 0, 31));
 
   const cFechaInicial = (fecha: Date) => {
     setFechaInicial(fecha);
@@ -43,7 +37,7 @@ const Mp = () => {
         </Texto>
         <Texto className="text-muted-foreground leading-7">Ordenes de trabajo mantenimiento correctivo creadas vs finalizadas</Texto>
 
-        <Texto as="h4">DICIEMBRE 2024</Texto>
+        <Texto as="h4">ENERO 2025</Texto>
         {/* <div className="flex items-center gap-3 px-3 pt-7">
           <DatePicker onFechaChange={cFechaInicial} label="Fecha Inicial" />
           <DatePicker onFechaChange={cFechaFinal} label="Fecha Final" />
