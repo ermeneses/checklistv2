@@ -38,12 +38,7 @@ type Data = {
   };
 };
 
-const Mp = ({
-  fechaI = new Date(2023, 10, 1),
-  fechaF = new Date(2023, 10, 30),
-  idDestino,
-  nombreDestino,
-}: Props) => {
+const Mp = ({ fechaI = new Date(2023, 10, 1), fechaF = new Date(2023, 10, 30), idDestino, nombreDestino }: Props) => {
   // console.log(convertirFechaMp(fechaI));
 
   const url = "https://maphg.com/america/api_v3/";
@@ -56,31 +51,15 @@ const Mp = ({
     accion: "mpSecciones",
   };
 
-  const {
-    data,
-    isLoading,
-    error,
-  }: { data: Data | null; isLoading: boolean; error: any } = useFetchData(
-    url,
-    body
-  );
+  const { data, isLoading, error }: { data: Data | null; isLoading: boolean; error: any } = useFetchData(url, body);
 
   return (
     <div className="flex flex-col md:flex-row md:items-center justify-start gap-6 md:gap-2">
       <div className="flex md:flex-col gap-2">
-        {isLoading ? (
-          <div className="w-36 p-2 rounded-full bg-slate-300 animate-pulse"></div>
-        ) : (
-          <Texto className="w-full md:w-72 text-xl md:text-3xl font-bold">
-            {nombreDestino}
-          </Texto>
-        )}
+        {isLoading ? <div className="w-36 p-2 rounded-full bg-slate-300 animate-pulse"></div> : <Texto className="w-full md:w-72 text-xl md:text-3xl font-bold">{nombreDestino}</Texto>}
         {data?.global && (
           <div className="flex gap-2 w-full">
-            <Barra
-              planificado={data.global.creadasGlobal}
-              finalizado={data.global.solucionadosGlobal}
-            />
+            <Barra planificado={data.global.creadasGlobal} finalizado={data.global.solucionadosGlobal} />
             <div>
               <h1 className="text-xs">
                 {data.global.solucionadosGlobal} de {data.global.creadasGlobal}
@@ -155,12 +134,7 @@ const Mp = ({
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-3 gap-y-3 md:gap-y-1">
           {data?.secciones.map((seccion) => (
-            <Barra
-              seccion={seccion.seccion}
-              key={seccion.idSeccion}
-              planificado={seccion.planificado}
-              finalizado={seccion.solucionados}
-            />
+            <Barra seccion={seccion.seccion} key={seccion.idSeccion} planificado={seccion.planificado} finalizado={seccion.solucionados} />
           ))}
         </div>
       )}
