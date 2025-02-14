@@ -2,14 +2,12 @@
 import Texto from "../dashboard/_components/Texto";
 import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
-
 import MP from "./_components/Mp";
-
 import { MPMC } from "@/utils/misConstantes";
 
 const Mp = () => {
   const [fechaInicial, setFechaInicial] = useState<Date>(new Date(2025, 0, 1));
-  const [fechaFinal, setFechaFinal] = useState<Date>(new Date(2024, 0, 31));
+  const [fechaFinal, setFechaFinal] = useState<Date>(new Date(2025, 0, 31));
 
   const cFechaInicial = (fecha: Date) => {
     setFechaInicial(fecha);
