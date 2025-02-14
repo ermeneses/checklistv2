@@ -52,7 +52,7 @@ function agrupar(tareas: Task[]): ResultadosPorDestino {
   };
 
   tareas.forEach((tarea) => {
-    if (tarea.campo10 === "MANTENIMIENTO" && tarea.añoNatural === "2024") {
+    if (tarea.campo10 === "MANTENIMIENTO" && tarea.añoNatural === "2025") {
       if (!resultados[tarea.destino]) {
         resultados[tarea.destino] = {
           Cotización: 0,
@@ -124,7 +124,7 @@ const Page = () => {
       {loading ? "Cargando ⏳" : ""}
       {grupo && (
         <div className="w-full flex flex-col items-center justify-start gap-4 mt-10">
-          <h1 className="text-4xl font-medium">FF&E 2024 GLOBAL</h1>
+          <h1 className="text-4xl font-medium">FF&E 2025 GLOBAL</h1>
           <Barra destino="Riviera Maya" actividades={grupo.RM.totalActividades} avance={grupo.RM.avanceGlobal} finalizadas={grupo.RM.Finalizado} cotizacion={grupo.RM.Cotización} ejecucion={grupo.RM["Ejecución 60%"] + grupo.RM["Ejecución 80%"]} catalogo={grupo.RM["Catalogo Conceptos"]} aprobacion={grupo.RM.Aprobación} proveedor={grupo.RM["P. Proveedor"]} />
           <Barra destino="Puerto Vallarta" actividades={grupo.PVR.totalActividades} avance={grupo.PVR.avanceGlobal} finalizadas={grupo.PVR.Finalizado} cotizacion={grupo.PVR.Cotización} ejecucion={grupo.PVR["Ejecución 60%"] + grupo.PVR["Ejecución 80%"]} catalogo={grupo.PVR["Catalogo Conceptos"]} aprobacion={grupo.PVR.Aprobación} proveedor={grupo.PVR["P. Proveedor"]} />
           <Barra destino="Santo Domingo" actividades={grupo.SDQ.totalActividades} avance={grupo.SDQ.avanceGlobal} finalizadas={grupo.SDQ.Finalizado} cotizacion={grupo.SDQ.Cotización} ejecucion={grupo.SDQ["Ejecución 60%"] + grupo.SDQ["Ejecución 80%"]} catalogo={grupo.SDQ["Catalogo Conceptos"]} aprobacion={grupo.SDQ.Aprobación} proveedor={grupo.SDQ["P. Proveedor"]} />

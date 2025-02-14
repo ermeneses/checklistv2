@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Task, TaskGroup } from "./interefaces";
-import Barra from "./components/barra";
+import Barra from "../ff&e2024gen/components/barra";
 type EstadoAvances = {
   Cotización: number;
   Finalizado: number;
@@ -52,7 +52,7 @@ function agrupar(tareas: Task[]): ResultadosPorDestino {
   };
 
   tareas.forEach((tarea) => {
-    if (tarea.campo10 === "MANTENIMIENTO" && tarea.añoNatural === "2024") {
+    if (tarea.campo10 === "MANTENIMIENTO" && tarea.añoNatural === "2025") {
       if (!resultados[tarea.destino]) {
         resultados[tarea.destino] = {
           Cotización: 0,
@@ -107,6 +107,7 @@ const Page = () => {
         };
         const respuesta = await fetch("https://maphg.com/america/api_ffande2024/", options);
         const datosJson = await respuesta.json();
+
         const mapeo = datosJson.data.data.flatMap((objeto: TaskGroup) => objeto.tareas);
         setTasks(mapeo);
         setGrupo(agrupar(mapeo));
@@ -121,19 +122,18 @@ const Page = () => {
   }, []);
   return (
     <div>
-      {loading ? "Cargando ⏳" : ""}
+      {loading ? "Cargando ⏳🪰" : ""}
       {grupo && (
         <div className="w-full flex flex-col items-center justify-start gap-4 mt-10">
-          <h1 className="text-4xl font-medium">FF&E 2024 GLOBAL</h1>
-          <Barra destino="Riviera Maya" actividades={grupo.RM.totalActividades} avance={grupo.RM.avanceGlobal} finalizadas={grupo.RM.Finalizado} cotizacion={grupo.RM.Cotización} ejecucion={grupo.RM["Ejecución 60%"] + grupo.RM["Ejecución 80%"]} catalogo={grupo.RM["Catalogo Conceptos"]} aprobacion={grupo.RM.Aprobación} proveedor={grupo.RM["P. Proveedor"]} />
-          <Barra destino="Puerto Vallarta" actividades={grupo.PVR.totalActividades} avance={grupo.PVR.avanceGlobal} finalizadas={grupo.PVR.Finalizado} cotizacion={grupo.PVR.Cotización} ejecucion={grupo.PVR["Ejecución 60%"] + grupo.PVR["Ejecución 80%"]} catalogo={grupo.PVR["Catalogo Conceptos"]} aprobacion={grupo.PVR.Aprobación} proveedor={grupo.PVR["P. Proveedor"]} />
-          <Barra destino="Santo Domingo" actividades={grupo.SDQ.totalActividades} avance={grupo.SDQ.avanceGlobal} finalizadas={grupo.SDQ.Finalizado} cotizacion={grupo.SDQ.Cotización} ejecucion={grupo.SDQ["Ejecución 60%"] + grupo.SDQ["Ejecución 80%"]} catalogo={grupo.SDQ["Catalogo Conceptos"]} aprobacion={grupo.SDQ.Aprobación} proveedor={grupo.SDQ["P. Proveedor"]} />
-
+          <h1 className="text-4xl font-medium">FF&E 2025 MANTENIMIENTO</h1>
+          {grupo.RM && <Barra destino="Riviera Maya" actividades={grupo.RM.totalActividades} avance={grupo.RM.avanceGlobal} finalizadas={grupo.RM.Finalizado} cotizacion={grupo.RM.Cotización} ejecucion={grupo.RM["Ejecución 60%"] + grupo.RM["Ejecución 80%"]} catalogo={grupo.RM["Catalogo Conceptos"]} aprobacion={grupo.RM.Aprobación} proveedor={grupo.RM["P. Proveedor"]} />}
+          {grupo.PVR && <Barra destino="Puerto Vallarta" actividades={grupo.PVR.totalActividades} avance={grupo.PVR.avanceGlobal} finalizadas={grupo.PVR.Finalizado} cotizacion={grupo.PVR.Cotización} ejecucion={grupo.PVR["Ejecución 60%"] + grupo.PVR["Ejecución 80%"]} catalogo={grupo.PVR["Catalogo Conceptos"]} aprobacion={grupo.PVR.Aprobación} proveedor={grupo.PVR["P. Proveedor"]} />}
+          {grupo.SDQ && <Barra destino="Santo Domingo" actividades={grupo.SDQ.totalActividades} avance={grupo.SDQ.avanceGlobal} finalizadas={grupo.SDQ.Finalizado} cotizacion={grupo.SDQ.Cotización} ejecucion={grupo.SDQ["Ejecución 60%"] + grupo.SDQ["Ejecución 80%"]} catalogo={grupo.SDQ["Catalogo Conceptos"]} aprobacion={grupo.SDQ.Aprobación} proveedor={grupo.SDQ["P. Proveedor"]} />}
           {grupo.SSA && <Barra destino="Imbassai" actividades={grupo.SSA.totalActividades} avance={grupo.SSA.avanceGlobal} finalizadas={grupo.SSA.Finalizado} cotizacion={grupo.SSA.Cotización} ejecucion={grupo.SSA["Ejecución 60%"] + grupo.SSA["Ejecución 80%"]} catalogo={grupo.SSA["Catalogo Conceptos"]} aprobacion={grupo.SSA.Aprobación} proveedor={grupo.SSA["P. Proveedor"]} />}
-          <Barra destino="Bávaro" actividades={grupo.PUJ.totalActividades} avance={grupo.PUJ.avanceGlobal} finalizadas={grupo.PUJ.Finalizado} cotizacion={grupo.PUJ.Cotización} ejecucion={grupo.PUJ["Ejecución 60%"] + grupo.PUJ["Ejecución 80%"]} catalogo={grupo.PUJ["Catalogo Conceptos"]} aprobacion={grupo.PUJ.Aprobación} proveedor={grupo.PUJ["P. Proveedor"]} />
-          <Barra destino="Jamaica" actividades={grupo.MBJ.totalActividades} avance={grupo.MBJ.avanceGlobal} finalizadas={grupo.MBJ.Finalizado} cotizacion={grupo.MBJ.Cotización} ejecucion={grupo.MBJ["Ejecución 60%"] + grupo.MBJ["Ejecución 80%"]} catalogo={grupo.MBJ["Catalogo Conceptos"]} aprobacion={grupo.MBJ.Aprobación} proveedor={grupo.MBJ["P. Proveedor"]} />
-          <Barra destino="Costa Mujeres" actividades={grupo.CMU.totalActividades} avance={grupo.CMU.avanceGlobal} finalizadas={grupo.CMU.Finalizado} cotizacion={grupo.CMU.Cotización} ejecucion={grupo.CMU["Ejecución 60%"] + grupo.CMU["Ejecución 80%"]} catalogo={grupo.CMU["Catalogo Conceptos"]} aprobacion={grupo.CMU.Aprobación} proveedor={grupo.CMU["P. Proveedor"]} />
-          <Barra destino="Capcana" actividades={grupo.CAP.totalActividades} avance={grupo.CAP.avanceGlobal} finalizadas={grupo.CAP.Finalizado} cotizacion={grupo.CAP.Cotización} ejecucion={grupo.CAP["Ejecución 60%"] + grupo.CAP["Ejecución 80%"]} catalogo={grupo.CAP["Catalogo Conceptos"]} aprobacion={grupo.CAP.Aprobación} proveedor={grupo.CAP["P. Proveedor"]} />
+          {grupo.PUJ && <Barra destino="Bávaro" actividades={grupo.PUJ.totalActividades} avance={grupo.PUJ.avanceGlobal} finalizadas={grupo.PUJ.Finalizado} cotizacion={grupo.PUJ.Cotización} ejecucion={grupo.PUJ["Ejecución 60%"] + grupo.PUJ["Ejecución 80%"]} catalogo={grupo.PUJ["Catalogo Conceptos"]} aprobacion={grupo.PUJ.Aprobación} proveedor={grupo.PUJ["P. Proveedor"]} />}
+          {grupo.MBJ && <Barra destino="Jamaica" actividades={grupo.MBJ.totalActividades} avance={grupo.MBJ.avanceGlobal} finalizadas={grupo.MBJ.Finalizado} cotizacion={grupo.MBJ.Cotización} ejecucion={grupo.MBJ["Ejecución 60%"] + grupo.MBJ["Ejecución 80%"]} catalogo={grupo.MBJ["Catalogo Conceptos"]} aprobacion={grupo.MBJ.Aprobación} proveedor={grupo.MBJ["P. Proveedor"]} />}
+          {grupo.CMU && <Barra destino="Costa Mujeres" actividades={grupo.CMU.totalActividades} avance={grupo.CMU.avanceGlobal} finalizadas={grupo.CMU.Finalizado} cotizacion={grupo.CMU.Cotización} ejecucion={grupo.CMU["Ejecución 60%"] + grupo.CMU["Ejecución 80%"]} catalogo={grupo.CMU["Catalogo Conceptos"]} aprobacion={grupo.CMU.Aprobación} proveedor={grupo.CMU["P. Proveedor"]} />}
+          {grupo.CAP && <Barra destino="Capcana" actividades={grupo.CAP.totalActividades} avance={grupo.CAP.avanceGlobal} finalizadas={grupo.CAP.Finalizado} cotizacion={grupo.CAP.Cotización} ejecucion={grupo.CAP["Ejecución 60%"] + grupo.CAP["Ejecución 80%"]} catalogo={grupo.CAP["Catalogo Conceptos"]} aprobacion={grupo.CAP.Aprobación} proveedor={grupo.CAP["P. Proveedor"]} />}
         </div>
       )}
     </div>
