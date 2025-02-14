@@ -8,6 +8,7 @@ interface Props {
   catalogo: number;
   aprobacion: number;
   proveedor: number;
+  año?: number;
 }
 const Barra = (props: Props) => {
   return (
@@ -15,7 +16,7 @@ const Barra = (props: Props) => {
       <div className="w-full md:w-3/5 xl:w-3/5 lg:w-3/5 flex flex-row items-center justify-between flex-wrap gap-2 self-center">
         <div className="flex sm:w-auto md:w-auto flex-col items-start justify-center flex-none w-full">
           <h1 className="leading-none font-bold uppercase">{props.destino}</h1>
-          <h4 className="leading-none font-light">FF&amp;E 2024</h4>
+          <h4 className="leading-none font-light">FF&amp;E {props.año ?? ""}</h4>
         </div>
         <div className="flex items-center justify-start gap-10">
           <div className="flex flex-col items-center justify-center self-stretch">
