@@ -52,7 +52,7 @@ function agrupar(tareas: Task[]): ResultadosPorDestino {
   };
 
   tareas.forEach((tarea) => {
-    if (tarea.campo10 === "MANTENIMIENTO" && tarea.añoNatural === "2025") {
+    if (tarea.añoNatural === "2025") {
       if (!resultados[tarea.destino]) {
         resultados[tarea.destino] = {
           Cotización: 0,
